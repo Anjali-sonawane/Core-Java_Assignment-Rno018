@@ -1,32 +1,44 @@
 import java.util.Scanner;
 
 class Employee{
-	static int empNo;
+	static int count;
+	static int totalSalary;
+	int empNo;
 	int salary;
-	int totalSalary=0;
-	void get(int empNo,int salary,int totalSalary) {
-		this.empNo=empNo;
-		this.salary=salary;
-		this.totalSalary=totalSalary;
+	
+
+	void get(int emp,int salary) {
+				this.salary=salary;
+		
+				this.empNo++;
+
 	}
 	void calculate(){
-		totalSalary =+salary;
-		empNo++;
+		count=count+1;
+		totalSalary = totalSalary +salary;
+		
 	}
 	void show() {
-		System.out.println("emp details :"+empNo+salary+totalSalary);
+		System.out.println("emp details :"+empNo+" , "+salary+" , "+totalSalary);
+		System.out.println("total no of emp: "+count);
+		System.out.println("total salary of emp: "+totalSalary);
 	}
 }
 public class Q38 {
-	public static void main() {
+	public static void main(String args[]) {
 	Scanner s = new Scanner(System.in);
-	System.out.println("enter EmpNo,Salary");
-	int empNo = s.nextInt();
-	int salary = s.nextInt();
-	int totalSalary =s.nextInt();
-	Employee e = new Employee();
-	e.get(empNo, salary, totalSalary);
-	e.calculate();
-	e.show();
+	System.out.println("how many employee you want to store");
+	int n= s.nextInt();
+	int ar[]=new int[n];
+	
+	for(int i=0;i<ar.length;i++) {
+		System.out.println("enter EmpNo,Salary");
+		int empno = s.nextInt();
+		int salary = s.nextInt();
+		Employee e = new Employee();
+		e.get(empno, salary);
+		e.calculate();
+		e.show();
+	}
 }
 }
